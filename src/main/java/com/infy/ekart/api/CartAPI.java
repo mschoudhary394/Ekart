@@ -27,6 +27,7 @@ import com.infy.ekart.exception.EKartException;
 import com.infy.ekart.service.CustomerCartService;
 
 //Add the missing annotation
+//@autowire
 @CrossOrigin
 @RequestMapping(value = "/cart-api")
 public class CartAPI {
