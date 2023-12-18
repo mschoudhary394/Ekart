@@ -1,0 +1,115 @@
+Sample Input and output data
+------------------------------
+1. View all products
+Get request :
+
+http://localhost:3333/Ekart/product-api/products
+
+
+2. View Specific product
+
+Get request :
+
+http://localhost:3333/Ekart/product-api/product/1000
+
+
+3. Add products to Customer Cart
+
+Post request :
+
+http://localhost:3333/Ekart/cart-api/products
+Request Body :
+{
+"customerEmailId":"harry@infosys.com",
+"cartProducts":
+
+[
+    {  "product":
+    {
+        "productId": 1000
+    },
+        "quantity": 1
+    },
+     {  "product":
+    {
+        "productId": 1001
+    },
+        "quantity": 1
+    }
+]
+}
+
+
+Mysql Command to check :
+SELECT * FROM EK_CUSTOMER_CART;
+SELECT * FROM EK_CART_PRODUCT;
+
+
+repeat   with steve@infosys.com as mail id
+
+4. Delete Product from cart .
+
+Delete Request:
+
+http://localhost:3333/Ekart/cart-api/customer/harry@infosys.com/product/1000
+
+5. Update Quantity of Product from cart
+
+Put Request :
+
+http://localhost:3333/Ekart/cart-api/customer/harry@infosys.com/product/1001
+
+RequestBody : 129 (as raw json)
+
+
+6. To check cart of customer 
+
+Get Request:
+http://localhost:3333/Ekart/cart-api/customer/harry@infosys.com/products
+
+7.Order products from cart
+Post Request :
+ 
+http://localhost:3333/Ekart/order-api/place-order
+
+RequestBody :
+
+{
+
+"customerEmailId": "harry@infosys.com",
+"dateOfDelivery" :  "2022-01-25T21:34:55",
+"paymentThrough" : "DEBIT_CARD"
+
+}
+
+SELECT * FROM EK_CUSTOMER_CART;
+SELECT * FROM EK_CART_PRODUCT;
+SELECT * FROM EK_ORDER;
+SELECT * FROM EK_ORDERED_PRODUCT;
+
+8. 
+To get all orders details
+Get Request :
+http://localhost:3333/Ekart/order-api/customer/harry@infosys.com/orders
+
+9.To get available card type:
+Get Request :
+http://localhost:3333/Ekart/payment-api/customer/harry@infosys.com/card-type/DEBIT_CARD
+
+10.
+To pay for order
+Post Request : 
+
+http://localhost:3333/Ekart/payment-api/customer/harry@infosys.com/order/90002
+
+RequestBody : 
+{
+  "cardId" : 202008 ,
+   "cvv" : 739
+}
+
+
+SELECT * FROM EK_TRANSACTION;
+SELECT * FROM EK_ORDERED_PRODUCT;
+
+
